@@ -1,4 +1,4 @@
 # weCar
-Basic implementation of a group, car buying concept. 
+Basic implementation of a group, car buying concept.
 
-Django, PostgreSQL
+Back end -> Django, PostgreSQL
