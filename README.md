@@ -22,5 +22,3 @@ Back end -> Django, PostgreSQL
  - as an admin, I should be able to add deals.
  - as an admin, I should be able to remove deals.
  - as an admin, I should be able to edit deals.
-
- - 
