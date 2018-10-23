@@ -1,13 +1,13 @@
 
 
 {%if all_deals %}
-    <h3> HERE ARE ALL MY ALBUMS</h3>
+    <h3> Here are the deals</h3>
     <ul>
         {% for deal in all_deals %}
-        <li><a href="/wecar/{{ deal.id }}/"> {{ deal.title }} </a> </li>
+        <li><a href="{% url 'detail' deal.id %}"> {{ deal.title }} </a> </li>
         {% endfor %}
     </ul>
 
 {% else %}
-     <h3> you don't have any deals </h3>
+     <h3> No deals today </h3>
 {% endif %}

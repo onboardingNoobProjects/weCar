@@ -13,4 +13,5 @@ class Deal(models.Model):
     pic = models.CharField(max_length=500, default='http://trotters-van-hire.co.uk/wp-content/uploads/2016/11/DelBoyVan.jpg')
 
     def __str__(self):
-        return self.title
+        saving = ((self.RRP - self.price)/self.RRP)*100
+        return self.title + ' - ' + str(round(saving, 2)) + '% off'
