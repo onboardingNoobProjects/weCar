@@ -1,38 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# from .models import deals
+from .models import Deal
+from django.template import loader
+
 import json
 
 
 # Create your views here.
-data = {
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "hobbies": ["running", "sky diving", "singing"],
-    "age": 35,
-    "children": [
-        {
-            "firstName": "Alice",
-            "age": 6
-        },
-        {
-            "firstName": "Bob",
-            "age": 8
-        }
-    ]
-}
 
-sampleData = json.dumps(data)
 
 
 
 
 def index(request):
-    return HttpResponse('This is the homepage')
+    all_deals = Deal.objects.all()
+    template = loader.get_template('weCar/index.html')
+    context = {
+         'all_deals' : all_deals,
+    }
 
-def wecar(request):
-    html = ''
+    # html = ''
+    # for deal in all_deals:
+    #     url = '/wecar/' + str(deal.id) + '/'
+    #     html += '<a href="' + url +  '">' + deal.title + '</a><br>'
+    return HttpResponse(template.render(context, request))
+
+def detail(request, deal_id):
+    html = "<h2>Details for deals id: " + str(deal_id) + "</h2>"
     return HttpResponse(html)
-
-def api(request):
-    return HttpResponse(sampleData)

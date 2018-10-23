@@ -1,0 +1,13 @@
+
+
+{%if all_deals %}
+
+    <ul>
+        {% for deal in all_deals %}
+        <li><a href="/weCar/{{ deal.id }}/"> {{ deal.title }} </a> </li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+     <h3> you don't have any deals </h3>
+{% endif %}
