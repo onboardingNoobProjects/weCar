@@ -8,6 +8,10 @@ import json
 
 # Create your views here.
 
+
+
+
+
 def index(request):
     all_deals = Deal.objects.all()
     context = {'all_deals' : all_deals}
