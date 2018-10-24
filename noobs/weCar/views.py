@@ -1,22 +1,25 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import authenticate, login
 from django.views import generic
-from django.views.generic import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Deal
-from .forms import UserForm
+
+class IndexView(generic.ListView):
+    template_name = 'weCar/index.html'
+    context_object_name = 'all_deals'
+
+    def get_queryset(self):
+        return Deal.objects.all()
+
+class DetailView(generic.DetailView):
+    model = Deal
+    template_name = 'weCar/detail.html'
+
+class DealCreate(CreateView):
+    model = Deal
+    fields = ['title', 'details', 'RRP', 'price', 'tippingPoint', 'expiry', 'pic']
 
 
 
-# Create your views here.
 
-def index(request):
-    all_deals = Deal.objects.all()
-    return render(request, 'weCar/index.html', {'all_deals' : all_deals})
-
-def detail(request, deal_id):
-    deal = get_object_or_404(Deal, pk=deal_id)
-    return render(request, 'weCar/detail.html', {'deal': deal})
 
 # class UserFormView(View):
 #     form_class = UserForm
