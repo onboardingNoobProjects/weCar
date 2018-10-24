@@ -5,6 +5,9 @@ urlpatterns = [
     # /wecar/
     url(r'^$', views.index, name='index'),
 
+    # # /wecar/register
+    # url(r'^register/$', views.UserForm.as_view(), name='register'),
+
     # /wecar/<deal_id>
     url(r'^(?P<deal_id>[0-9]+)/$', views.detail, name='detail'),
 ]
