@@ -1,5 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Deal
 
 class IndexView(generic.ListView):
@@ -17,6 +18,13 @@ class DealCreate(CreateView):
     model = Deal
     fields = ['title', 'details', 'RRP', 'price', 'tippingPoint', 'expiry', 'pic']
 
+class DealUpdate(UpdateView):
+    model = Deal
+    fields = ['title', 'details', 'RRP', 'price', 'tippingPoint', 'expiry', 'pic']
+
+class DealDelete(DeleteView):
+    model = Deal
+    success_url = reverse_lazy('index', kwargs={})
 
 
 
