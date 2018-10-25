@@ -5,12 +5,19 @@ urlpatterns = [
     # /wecar/
     url(r'^$', views.IndexView.as_view(), name='index'),
 
+    # /wecar/<deal_id>
+    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+
     # /wecar/deal/add
     url(r'^deal/add/$', views.DealCreate.as_view(), name='deal-add'),
+
+    # /wecar/deal/<pk>/update
+    url(r'^deal/(?P<pk>[0-9]+)/update/$', views.DealUpdate.as_view(), name='deal-update'),
+
+    # /wecar/deal/<pk>/delete
+    url(r'^deal/(?P<pk>[0-9]+)/delete/$', views.DealDelete.as_view(), name='deal-delete'),
 
     # # /wecar/register
     # url(r'^register/$', views.UserForm.as_view(), name='register'),
 
-    # /wecar/<deal_id>
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
 ]
