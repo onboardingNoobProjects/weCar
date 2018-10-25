@@ -1,4 +1,17 @@
+<li class="">
+  {% if not user.is_authenticated %}
+    <li> <a href="/wecar/login/">LOGON</a><li>
+  {% else %}
+    <li><a href="/wecar/logout/">LOGOUT</a><li>
+  {% endif %}
+</li>
 
+
+<!-- <li class="">
+  <a href={% url 'logout' %}>
+   <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+  </a>
+</li> -->
 
 {%if all_deals %}
     <h3> Here are the deals</h3>
