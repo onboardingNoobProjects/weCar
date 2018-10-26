@@ -6,7 +6,11 @@
       <h3> Here are the deals</h3>
       <ul>
           {% for deal in all_deals %}
-          <li><a href="{% url 'detail' deal.id %}"> {{ deal.title }} </a> </li>
+          <li><a href="{% url 'detail' deal.id %}"> {{ deal.title }}
+            <div style="max-width: 400px" >
+           <img src="{{deal.pic}}" style="max-width:100%;" />
+           </div>
+          </a> </li>
           <form action="{% url 'deal-delete' deal.id %}" method="post" style="display: inline;">
             {% csrf_token %}
             <input type="hidden" name="deal_id" value="{{ deal.id }}"/>
