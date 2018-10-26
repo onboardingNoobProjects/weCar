@@ -120,6 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/wecar/'
+LOGIN_REDIRECT_URL = 'index'
 
-LOGOUT_REDIRECT_URL = '/wecar/'
+LOGOUT_REDIRECT_URL = 'index'

@@ -4,32 +4,33 @@ from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
+from braces.views import LoginRequiredMixin, AnonymousRequiredMixin, StaffuserRequiredMixin
 from .forms import UserForm
 from .models import Deal
 
 
 
 
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'weCar/index.html'
     context_object_name = 'all_deals'
 
     def get_queryset(self):
         return Deal.objects.all()
 
-class DetailView(generic.DetailView):
+class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Deal
     template_name = 'weCar/detail.html'
 
-class DealCreate(CreateView):
+class DealCreate(StaffuserRequiredMixin, CreateView):
     model = Deal
     fields = ['title', 'details', 'RRP', 'price', 'tippingPoint', 'expiry', 'pic']
 
-class DealUpdate(UpdateView):
+class DealUpdate(StaffuserRequiredMixin, UpdateView):
     model = Deal
     fields = ['title', 'details', 'RRP', 'price', 'tippingPoint', 'expiry', 'pic']
 
-class DealDelete(DeleteView):
+class DealDelete(StaffuserRequiredMixin, DeleteView):
     model = Deal
     success_url = reverse_lazy('index', kwargs={})
 
@@ -38,7 +39,8 @@ class DealDelete(DeleteView):
 #         logout(request)
 #         return redirect('index')
 
-class UserFormView(View):
+class UserFormView(AnonymousRequiredMixin, View):
+    authenticated_redirect_url = u"index"
     form_class = UserForm
     template_name = 'wecar/registration_form.html'
 
