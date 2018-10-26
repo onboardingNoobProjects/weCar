@@ -34,11 +34,6 @@ class DealDelete(StaffuserRequiredMixin, DeleteView):
     model = Deal
     success_url = reverse_lazy('index', kwargs={})
 
-# class Logout(View):
-#     def get(self):
-#         logout(request)
-#         return redirect('index')
-
 class UserFormView(AnonymousRequiredMixin, View):
     authenticated_redirect_url = u"index"
     form_class = UserForm
