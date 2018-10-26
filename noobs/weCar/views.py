@@ -10,13 +10,16 @@ from .models import Deal
 
 
 
-
 class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'weCar/index.html'
     context_object_name = 'all_deals'
 
     def get_queryset(self):
-        return Deal.objects.all()
+        query = self.request.GET.get('q')
+        if query:
+            return Deal.objects.filter(title__icontains=query)
+        else:
+            return Deal.objects.all()
 
 class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Deal

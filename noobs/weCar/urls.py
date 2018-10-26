@@ -23,8 +23,5 @@ urlpatterns = [
     # /wecar/register
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
-    # /wecar/logout
-    # url(r'^logout/$', views.logout_view , name='logout')
-    # url(r'^logout/$', views.Logout.as_view(), name='logout'),
 
 ]
