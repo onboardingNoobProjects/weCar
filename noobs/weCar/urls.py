@@ -26,7 +26,5 @@ urlpatterns = [
     # /wecar/logout
     # url(r'^logout/$', views.logout_view , name='logout')
     # url(r'^logout/$', views.Logout.as_view(), name='logout'),
-    url(r'^login/$', LoginView.as_view(), name='login'),
-    url(r'^logout/$', LogoutView.as_view(), name='logout', kwargs={ 'next_page' : 'index', }),
 
 ]
