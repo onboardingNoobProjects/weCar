@@ -2,6 +2,7 @@
 
 {% block body %}
 
+
   {%if all_deals %}
       <h3> Here are the deals</h3>
       <ul>
@@ -18,6 +19,7 @@
               <span class="glyphicon glyphicon-trash"></span>
             </button>
           </form>
+
 
 
           <form action="{% url 'deal-update' deal.id %}" method="get" style="display: inline;">
