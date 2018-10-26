@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
 
     # /wecar/deal/add
-    url(r'^deal/add/$', views.DealCreate.as_view(), name='deal-add'),
+    url(r'^add/$', views.DealCreate.as_view(), name='deal-add'),
 
     # /wecar/deal/<pk>/update
     url(r'^deal/(?P<pk>[0-9]+)/update/$', views.DealUpdate.as_view(), name='deal-update'),

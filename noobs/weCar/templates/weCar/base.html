@@ -41,9 +41,10 @@
          <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>&nbsp;Deals
          </a>
       </li>
+
       <li class="">
-          <a href="{% url 'index' %}">
-          <span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Music
+          <a href="{% url 'deal-add' %}">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Deal
           </a>
       </li>
 
@@ -57,11 +58,7 @@
      </form>
 
      <ul class="nav navbar-nav navbar-right">
-       <li class="">
-           <a href="{% url 'index' %}">
-           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Deal
-           </a>
-       </li>
+
        {% if user.is_authenticated %}
          <li class="">
              <a href="{% url 'logout' %}">
