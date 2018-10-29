@@ -24,6 +24,8 @@ Back end -> Django, PostgreSQL
  - as an admin, I should be able to edit deals.
 
 ## Installation
+**NOTE** Python 3 is required. Virtual environment is recommended.
+
 1 - Download repo and `cd` into main directory
-2 - Install packages and dependencies `pip install -r requirements.txt`
-3 - Run server `python noobs/manage.py runserver`
+2 - Install packages and dependencies `pip3 install -r requirements.txt`
+3 - Run server `python3 noobs/manage.py runserver`
