@@ -27,5 +27,6 @@ Back end -> Django, PostgreSQL
 **NOTE** Python 3 is required. Virtual environment is recommended.
 
 1 - Download repo and `cd` into main directory
+
 2 - Install packages and dependencies `pip3 install -r requirements.txt`
 3 - Run server `python3 noobs/manage.py runserver`
