@@ -22,3 +22,8 @@ Back end -> Django, PostgreSQL
  - as an admin, I should be able to add deals.
  - as an admin, I should be able to remove deals.
  - as an admin, I should be able to edit deals.
+
+## Installation
+1 - Download repo and `cd` into main directory
+2 - Install packages and dependencies `pip install -r requirements.txt`
+3 - Run server `python noobs/manage.py runserver`
