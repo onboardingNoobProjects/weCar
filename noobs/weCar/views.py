@@ -10,7 +10,7 @@ from .models import Deal
 
 
 
-class IndexView(LoginRequiredMixin, generic.ListView):
+class IndexView(generic.ListView):
     template_name = 'weCar/index.html'
     context_object_name = 'all_deals'
 
