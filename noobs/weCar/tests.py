@@ -1,11 +1,20 @@
-from django.test import TestCase
+import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+class Details(unittest.TestCase):
 
-browser = webdriver.Chrome()
+    def setUp(self):
+        self.browser = webdriver.Chrome()
+        self.addCleanup(self.browser.quit)
 
-browser.get('localhost:8000/wecar/')
-assert 'BMW' in browser.page_source
+    def testPageTitle(self):
+        self.browser.get('localhost:8000/wecar/')
+        self.assertIn('WeCar', self.browser.title)
 
-browser.quit()
+    def testPageContents(self):
+        self.browser.get('localhost:8000/wecar/')
+        self.assertIn('BMW', self.browser.page_source)
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
