@@ -28,33 +28,17 @@
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
                     </form>
+                    <form action="{% url 'deal-update' deal.id %}" method="get" style="display: inline;">
+                      {% csrf_token %}
+                      <input type="hidden" name="deal_id" value="{{ deal.id }}"/>
+                      <button type="submit"  btn-default btn-sm">
+                        <span class="glyphicon glyphicon-edit"></span>
+                      </button>
+                    </form>
 
                 </div>
             </div>
           </div>
-
-          <!-- <li><a href="{% url 'detail' deal.id %}"> {{ deal.title }}
-            <div style="max-width: 400px" >
-           <img src="{{deal.pic}}" style="max-width:100%;" />
-           </div>
-          </a> </li>
-          <form action="{% url 'deal-delete' deal.id %}" method="post" style="display: inline;">
-            {% csrf_token %}
-            <input type="hidden" name="deal_id" value="{{ deal.id }}"/>
-            <button type="submit"  btn-default btn-sm">
-              <span class="glyphicon glyphicon-trash"></span>
-            </button>
-          </form>
-
-
-
-          <form action="{% url 'deal-update' deal.id %}" method="get" style="display: inline;">
-            {% csrf_token %}
-            <input type="hidden" name="deal_id" value="{{ deal.id }}"/>
-            <button type="submit"  btn-default btn-sm">
-              <span class="glyphicon glyphicon-edit"></span>
-            </button>
-          </form> -->
           {% endfor %}
       </ul>
 
