@@ -1,52 +1,50 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
-# browser = webdriver.Chrome()
-# browser.get('localhost:8000/wecar/add')
-# inputElement = browser.find_element_by_xpath('//*[@id="username"]')
-# inputElement.send_keys('admin')
-#
-# inputElement = browser.find_element_by_xpath('//*[@id="password"]')
-# inputElement.send_keys('pass123')
-#
-# inputElement.submit()
-
-
-    # def login(username,password):
-    #     browser = webdriver.Chrome()
-    #     browser.get('localhost:8000/wecar/add')
-    #     inputElement = browser.find_element_by_xpath('//*[@id="username"]')
-    #     inputElement.send_keys(username)
-    #
-    #     inputElement = browser.find_element_by_xpath('//*[@id="password"]')
-    #     inputElement.send_keys(password)
-    #
-    #     inputElement.submit()
+from data import Logins,Logouts,AddDeals_vars,ToolBar
+import helper
+import time
 
 class AddDeal(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
+        self.browser.get(AddDeals_vars.addDeal_url)
+        helper.login(self)
+
+    def tearDown(self):
         self.addCleanup(self.browser.quit)
-        self.browser = webdriver.Chrome()
-        self.browser.get('localhost:8000/wecar/add')
-        inputElement = self.browser.find_element_by_xpath('//*[@id="username"]')
-        inputElement.send_keys(username)
 
-        inputElement = self.browser.find_element_by_xpath('//*[@id="password"]')
-        inputElement.send_keys(password)
+    def testPageLabels(self):
+        for i in AddDeals_vars.addDeal_labels:
+            self.assertIn(i, self.browser.page_source)
 
-        inputElement.submit()
+    def testBtDeals(self):
+        selected = self.browser.find_element_by_xpath(ToolBar.btDeals)
+        selected.click()
+        response = self.browser.current_url
+        self.assertTrue(response == Logins.login_url)
 
-    def testusernameTestField(self):
-        self.browser.get('localhost:8000/wecar/add')
-        self.assertIn('ammar', self.browser.title)
+    def testBtweCar(self):
+        selected = self.browser.find_element_by_xpath(ToolBar.btweCar)
+        selected.click()
+        response = self.browser.current_url
+        self.assertTrue(response == Logins.login_url)
 
+    def testBtSearch(self):
+        searchTxt = self.browser.find_element_by_xpath(ToolBar.txtSearch)
+        searchTxt.send_keys(Search_vars.carName)
 
-    def testPasswordTextField(self):
-        self.browser.get('localhost:8000/wecar/add')
-        self.assertIn('pass', self.browser.page_source)
+        selected = self.browser.find_element_by_xpath(ToolBar.btSearch)
+        selected.click()
+        response = self.browser.current_url
+        self.assertTrue(response == ToolBar.searched_url + ToolBar.carName)
+
+    def testBtLogout(self):
+
+        helper.logout(self)
+        response = self.browser.current_url
+        self.assertTrue(response == Logins.login_url)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
