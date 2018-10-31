@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from requests import get
 import helper
 import data
 
@@ -13,6 +14,10 @@ class Details(unittest.TestCase):
 
     def tearDown(self):
         self.addCleanup(self.browser.quit)
+
+    def testPageLoaded(self):
+        request = get(data.Details.detailsURL)
+        self.assertEqual(request.status_code, 200)
 
     def testPageTitle(self):
         self.assertIn('WeCar', self.browser.title)
@@ -47,6 +52,14 @@ class Details(unittest.TestCase):
         helper.logout(self)
         response = self.browser.current_url
         self.assertTrue(response == data.Details.indexURL)
+
+    def testUnauthorisedAcess(self):
+        helper.logout(self)
+        self.browser.get(data.Details.detailsURL)
+        response = self.browser.current_url
+        self.assertFalse(response == data.Details.indexURL)
+
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

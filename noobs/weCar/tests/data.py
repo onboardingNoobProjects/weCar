@@ -12,7 +12,7 @@ class Logouts:
     logout_bt = '//*[@id="topNavBar"]/ul[2]/li/a'
 
 class Details:
-    detailsURL = 'localhost:8000/wecar/1'
+    detailsURL = 'http://localhost:8000/wecar/1'
     indexURL = 'http://localhost:8000/wecar/'
     imageElement = '/html/body/img'
     titleElement = '/html/body/h1'
@@ -21,9 +21,15 @@ class Details:
     expiryDate = 'Expiry date:'
     descriptionElement = '/html/body/div'
 
-class AddDeals_vars:
+class Register:
+    registerURL = 'http://localhost:8000/wecar/register'
+    usernameField = '//*[@id="id_username"]'
+    emailField = '//*[@id="id_email"]'
+    passwordField = '//*[@id="id_password"]'
+    submitBtn = '/html/body/form/div[4]/div/button'
 
-    addDeal_url = 'localhost:8000/wecar/add'
+class AddDeals_vars:
+    addDeal_url = 'http://localhost:8000/wecar/add'
     addDeal_labels = ['Title:','Details:','RRP:','Price:','TippingPoint:','Expiry:','Pic:']
     addDeal_title = 'BMW i3'
     addDeal_details = 'Great Green car helping the enviorment'
@@ -42,10 +48,11 @@ class AddDeals_vars:
     addDeal_expiry_xpath = '//*[@id="id_expiry"]'
     addDeal_pic_xpath = '//*[@id="id_pic"]'
     addDeal_btSubmit_xpath = '/html/body/form/div[8]/div/button'
+    
 class ToolBar:
-        carName = 'tesla'
-        btDeals = '//*[@id="topNavBar"]/ul[1]/li[1]/a'
-        btweCar = '/html/body/nav/div/div[1]/a'
-        txtSearch = '//*[@id="topNavBar"]/form/div/input'
-        btSearch = '//*[@id="topNavBar"]/form/button'
-        searched_url = 'http://localhost:8000/wecar/?q='
+    carName = 'tesla'
+    btDeals = '//*[@id="topNavBar"]/ul[1]/li[1]/a'
+    btweCar = '/html/body/nav/div/div[1]/a'
+    txtSearch = '//*[@id="topNavBar"]/form/div/input'
+    btSearch = '//*[@id="topNavBar"]/form/button'
+    searched_url = 'http://localhost:8000/wecar/?q='
