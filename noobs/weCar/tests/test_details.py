@@ -24,6 +24,16 @@ class Details(unittest.TestCase):
         elem = self.browser.find_element_by_xpath('/html/body/h1')
         self.assertTrue(elem)
 
+    def testH3Exists(self):
+        elem = self.browser.find_element_by_xpath('/html/body/h3')
+        self.assertTrue(elem)
+
+    def testTippingPointExists(self):
+        self.assertIn('Tipping point:', self.browser.page_source)
+
+    def testExpiryDateExists(self):
+        self.assertIn('Expiry date:', self.browser.page_source)
+
     def testLogout(self):
         helper.logout(self)
         response = self.browser.current_url
