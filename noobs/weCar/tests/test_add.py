@@ -33,10 +33,11 @@ class AddDeal(unittest.TestCase):
 
     def testBtSearch(self):
         searchTxt = self.browser.find_element_by_xpath(ToolBar.txtSearch)
-        searchTxt.send_keys(Search_vars.carName)
+        searchTxt.send_keys(ToolBar.carName)
 
         selected = self.browser.find_element_by_xpath(ToolBar.btSearch)
         selected.click()
+
         response = self.browser.current_url
         self.assertTrue(response == ToolBar.searched_url + ToolBar.carName)
 
@@ -45,6 +46,37 @@ class AddDeal(unittest.TestCase):
         helper.logout(self)
         response = self.browser.current_url
         self.assertTrue(response == Logins.login_url)
+
+    def testAddDeals(self):
+        
+        title = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_title_xpath)
+        title.send_keys(AddDeals_vars.addDeal_title)
+
+        details = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_details_xpath)
+        details.send_keys(AddDeals_vars.addDeal_details)
+
+        rrp = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_rrp_xpath)
+        rrp.send_keys(AddDeals_vars.addDeal_rrp)
+
+        price = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_price_xpath)
+        price.send_keys(AddDeals_vars.addDeal_price)
+
+        tippingPoint = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_tippingPoint_xpath)
+        tippingPoint.send_keys(AddDeals_vars.addDeal_tippingPoint)
+
+        expiry = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_expiry_xpath)
+        expiry.send_keys(AddDeals_vars.addDeal_expiry)
+
+        pic = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_pic_xpath)
+        pic.send_keys(AddDeals_vars.addDeal_pic)
+
+        btSubmit = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_btSubmit_xpath)
+        btSubmit.click()
+
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
