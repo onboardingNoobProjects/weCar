@@ -6,10 +6,10 @@ from data import logouts
 
 def login(self):
     inputElement = self.browser.find_element_by_xpath(logins.login_username)
-    inputElement.send_keys('ammar')
+    inputElement.send_keys('admin')
 
     inputElement = self.browser.find_element_by_xpath(logins.login_password)
-    inputElement.send_keys('pass')
+    inputElement.send_keys('pass123')
 
     inputElement.submit()
 

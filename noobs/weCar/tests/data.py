@@ -8,3 +8,7 @@ class logins:
 
 class logouts:
     logout_bt = '//*[@id="topNavBar"]/ul[2]/li/a'
+
+class addDeals_vars:
+    addDeal_url = 'localhost:8000/wecar/add'
+    addDeal_labels = ['Title:','Details:','RRP:','Price:','TippingPoint:','Expiry:','Pic:']
