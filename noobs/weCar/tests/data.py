@@ -8,3 +8,13 @@ class logins:
 
 class logouts:
     logout_bt = '//*[@id="topNavBar"]/ul[2]/li/a'
+
+class Details:
+    detailsURL = 'localhost:8000/wecar/1'
+    indexURL = 'http://localhost:8000/wecar/'
+    imageElement = '/html/body/img'
+    titleElement = '/html/body/h1'
+    priceElement = '/html/body/h3'
+    tippingPoint = 'Tipping point:'
+    expiryDate = 'Expiry date:'
+    descriptionElement = '/html/body/div'
