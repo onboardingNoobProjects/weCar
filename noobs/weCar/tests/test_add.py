@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from data import Logins,Logouts,AddDeals_vars,ToolBar
+from data import Logins,Logouts,AddDeals_vars,ToolBar,Index_vars
 from requests import get
 import helper
 import time
@@ -17,6 +17,9 @@ class AddDeal(unittest.TestCase):
     def tearDown(self):
         self.addCleanup(self.browser.quit)
 
+    def testPageTitle(self):
+        self.assertIn('add', self.browser.title)
+
     def testPageLabels(self):
         for i in AddDeals_vars.addDeal_labels:
             self.assertIn(i, self.browser.page_source)
@@ -25,13 +28,13 @@ class AddDeal(unittest.TestCase):
         selected = self.browser.find_element_by_xpath(ToolBar.btDeals)
         selected.click()
         response = self.browser.current_url
-        self.assertTrue(response == Logins.login_url)
+        self.assertTrue(response == Index_vars.index_url)
 
     def testBtweCar(self):
         selected = self.browser.find_element_by_xpath(ToolBar.btweCar)
         selected.click()
         response = self.browser.current_url
-        self.assertTrue(response == Logins.login_url)
+        self.assertTrue(response == Index_vars.index_url)
 
     def testBtSearch(self):
         searchTxt = self.browser.find_element_by_xpath(ToolBar.txtSearch)
@@ -47,7 +50,7 @@ class AddDeal(unittest.TestCase):
 
         helper.logout(self)
         response = self.browser.current_url
-        self.assertTrue(response == Logins.login_url)
+        self.assertTrue(response == Index_vars.index_url)
 
     def testAddDeals(self):
 

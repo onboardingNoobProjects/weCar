@@ -15,5 +15,5 @@ def login(self):
     inputElement.submit()
 
 def logout(self):
-    inputElement = self.browser.find_element_by_xpath(Logouts.logout_bt)
+    inputElement = self.browser.find_element_by_xpath(Logouts.logout_bt_path)
     inputElement.click()
