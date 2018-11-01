@@ -22,7 +22,8 @@ class Details:
     descriptionElement = '/html/body/div'
 
 class Register:
-    registerURL = 'http://localhost:8000/wecar/register'
+    registerURL = 'http://localhost:8000/wecar/register/'
+    loginURL = 'http://localhost:8000/accounts/login/'
     usernameField = '//*[@id="id_username"]'
     emailField = '//*[@id="id_email"]'
     passwordField = '//*[@id="id_password"]'
