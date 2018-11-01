@@ -2,8 +2,10 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from data import Logins,Logouts,AddDeals_vars,ToolBar
+from requests import get
 import helper
 import time
+import data
 
 class AddDeal(unittest.TestCase):
 
@@ -48,7 +50,7 @@ class AddDeal(unittest.TestCase):
         self.assertTrue(response == Logins.login_url)
 
     def testAddDeals(self):
-        
+
         title = self.browser.find_element_by_xpath(AddDeals_vars.addDeal_title_xpath)
         title.send_keys(AddDeals_vars.addDeal_title)
 
@@ -75,7 +77,11 @@ class AddDeal(unittest.TestCase):
 
 
 
+    def testPageLoaded(self):
+        request = get(data.AddDeals_vars.addDeal_url)
+        self.assertEqual(request.status_code, 200)
 
+    # def rrp_tippingPoint_price_inputValidation(self):
 
 
 if __name__ == '__main__':
