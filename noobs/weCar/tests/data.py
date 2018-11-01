@@ -1,15 +1,15 @@
 
 
 class Logins:
-    login_path = 'localhost:8000/wecar'
-    login_url = 'http://localhost:8000/wecar/'
+    login_path = 'localhost:8000/accounts/login/'
+    login_url = 'http://localhost:8000/accounts/login/'
     login_username = '//*[@id="username"]'
     login_password = '//*[@id="password"]'
     username = 'admin'
     password = 'pass123'
 
 class Logouts:
-    logout_bt = '//*[@id="topNavBar"]/ul[2]/li/a'
+    logout_bt_path = '//*[@id="topNavBar"]/ul[2]/li/a'
 
 class Details:
     detailsURL = 'http://localhost:8000/wecar/1'
