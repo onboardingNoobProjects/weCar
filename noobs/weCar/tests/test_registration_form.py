@@ -20,8 +20,23 @@ class Details(unittest.TestCase):
 
     def testPageLoaded(self):
         response = self.browser.current_url
-        print("=============="+response)
         self.assertTrue(response == data.Register.registerURL)
+
+    def testUsernameFieldExists(self):
+        elem = self.browser.find_element_by_xpath(data.Register.usernameField)
+        self.assertTrue(elem)
+
+    def testEmailFieldExists(self):
+        elem = self.browser.find_element_by_xpath(data.Register.emailField)
+        self.assertTrue(elem)
+
+    def testPasswordFieldExists(self):
+        elem = self.browser.find_element_by_xpath(data.Register.passwordField)
+        self.assertTrue(elem)
+
+    def testSubmitButtonExists(self):
+        elem = self.browser.find_element_by_xpath(data.Register.submitBtn)
+        self.assertTrue(elem)
 
 
 class DetailsNoSetUp(unittest.TestCase):
