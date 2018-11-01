@@ -48,7 +48,7 @@ class AddDeals_vars:
     addDeal_expiry_xpath = '//*[@id="id_expiry"]'
     addDeal_pic_xpath = '//*[@id="id_pic"]'
     addDeal_btSubmit_xpath = '/html/body/form/div[8]/div/button'
-    
+
 class ToolBar:
     carName = 'tesla'
     btDeals = '//*[@id="topNavBar"]/ul[1]/li[1]/a'
@@ -56,3 +56,6 @@ class ToolBar:
     txtSearch = '//*[@id="topNavBar"]/form/div/input'
     btSearch = '//*[@id="topNavBar"]/form/button'
     searched_url = 'http://localhost:8000/wecar/?q='
+
+class Index_vars:
+    index_url = 'http://localhost:8000/wecar/'
